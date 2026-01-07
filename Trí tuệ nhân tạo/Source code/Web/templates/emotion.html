@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emotion Recognition</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/index.css" />
+    <link rel="shortcut icon" href="/static/img/hcmue.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+  </head>
+  <body>
+    <header class="container header">
+      <nav class="nav">
+        <div class="logo">
+          <h2>Emotion Recognition</h2>
+        </div>
+        <div class="nav_menu" id="nav_menu">
+          <ul class="nav_menu_list">
+            <li class="nav_menu_item">
+              <a href="/" class="nav_menu_link">Home</a>
+            </li>
+            <li class="nav_menu_item">
+              <a href="/emotion" class="nav_menu_link">Emotion Recognition</a>
+            </li>
+            <li class="nav_menu_item">
+              <a
+                href="#footer"
+                class="nav_menu_link"
+                onclick="customSmoothScrollToFooter()"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <h1 class="main-heading">Emotion Recognition</h1>
+      <form id="uploadForm" enctype="multipart/form-data" class="form">
+        <select name="model_choice" id="model_choice" required>
+          <option value="naive_bayes">Naive Bayes</option>
+          <option value="svm">Support Vector Machine</option>
+          <option value="random_forest">Random Forest</option>
+          <option value="logistic_regression">Logistic Regression</option>
+          <option value="knn">K-Nearest Neighbors</option>
+        </select>
+        <label for="media" class="label-file file-button">Select File</label>
+        <input
+          type="file"
+          id="media"
+          name="media"
+          accept="image/*,video/*"
+          required
+        />
+      </form>
+      <p id="result" class="info-text"></p>
+
+      <div class="button-container">
+        <button id="predictButton" type="button" class="btn view_more_btn">
+          Predict Emotion
+        </button>
+        <button id="startCamera" class="camera-btn btn view_more_btn">
+          Start Camera Detection
+        </button>
+      </div>
+      <div id="cameraContainer" style="display: none">
+        <img id="videoFeed" width="640" height="480" />
+        <div id="currentModel"></div>
+      </div>
+
+    </div>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/camera.js"></script>
+    <script src="/static/js/videoModelChange.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+    <script src="/static/js/index.js"></script>
+
+  </body>
+</html>
